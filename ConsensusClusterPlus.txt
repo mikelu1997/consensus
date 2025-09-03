@@ -31,7 +31,7 @@ data=matrix(as.numeric(as.matrix(data)), nrow=nrow(data), dimnames=dimnames)
 
 results=ConsensusClusterPlus(data,
                              maxK=9,
-                             reps=100,
+                             reps=1000,
                              pItem=0.8,
                              pFeature=1,
                              title=workDir,
@@ -50,3 +50,4 @@ uniqClu=levels(factor(cluster$cluster))
 cluster$cluster=letter[match(cluster$cluster, uniqClu)]
 clusterOut=rbind(ID=colnames(cluster), cluster)
 write.table(clusterOut, file="cluster.txt", sep="\t", quote=F, col.names=F)
+
